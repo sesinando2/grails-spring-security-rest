@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse
 
 class SpringSecurityRestGrailsPlugin {
 
-    String version = "1.3.4"
+    String version = "1.3.4-comcent"
     String grailsVersion = "2.0 > *"
     List loadAfter = ['springSecurityCore']
     List pluginExcludes = [
@@ -103,12 +103,12 @@ class SpringSecurityRestGrailsPlugin {
             authenticationTrustResolver = ref('authenticationTrustResolver')
             throwableAnalyzer = ref('throwableAnalyzer')
         }
-        accessDeniedHandler(AccessDeniedHandlerImpl) {
+        /*accessDeniedHandler(AccessDeniedHandlerImpl) {
             errorPage = null //403
         }
         requestCache(NullRequestCache)
         authenticationEntryPoint(Http403ForbiddenEntryPoint)
-        securityContextRepository(NullSecurityContextRepository)
+        securityContextRepository(NullSecurityContextRepository)*/
 
         /* restTokenValidationFilter */
         restTokenValidationFilter(RestTokenValidationFilter) {
