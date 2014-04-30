@@ -97,7 +97,7 @@ class SpringSecurityRestGrailsPlugin {
         restAuthenticationFailureHandler(RestAuthenticationFailureHandler) {
             statusCode = conf.rest.login.failureStatusCode?:HttpServletResponse.SC_FORBIDDEN
         }
-        rememberMeServices(NullRememberMeServices)
+        /*rememberMeServices(NullRememberMeServices)*/
         exceptionTranslationFilter(ExceptionTranslationFilter, ref('authenticationEntryPoint'), ref('requestCache')) {
             accessDeniedHandler = ref('accessDeniedHandler')
             authenticationTrustResolver = ref('authenticationTrustResolver')
