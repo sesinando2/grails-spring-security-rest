@@ -38,7 +38,7 @@ class RestTokenValidationFilter extends GenericFilterBean {
         HttpServletRequest servletRequest = request
 
         log.debug "Looking for a token value in the header '${headerName}'"
-        String tokenValue = servletRequest.getHeader(headerName)
+        String tokenValue = servletRequest.getHeader(headerName) ?: servletRequest.getParameter("token")
 
         if (tokenValue) {
             log.debug "Token found: ${tokenValue}"
@@ -54,7 +54,6 @@ class RestTokenValidationFilter extends GenericFilterBean {
                     SecurityContextHolder.context.setAuthentication(authenticationResult)
 
                     processFilterChain(request, response, chain, tokenValue, authenticationResult)
-
                 }
 
             } catch (AuthenticationException ae) {
