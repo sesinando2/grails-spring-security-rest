@@ -58,7 +58,9 @@ class RestTokenValidationFilter extends GenericFilterBean {
 
             } catch (AuthenticationException ae) {
                 log.debug "Authentication failed: ${ae.message}"
-                authenticationFailureHandler.onAuthenticationFailure(request, response, ae)
+                log.debug "Continuing Filter..."
+                // authenticationFailureHandler.onAuthenticationFailure(request, response, ae)
+                chain.doFilter(request, response)
             }
         } else {
             log.debug "Token not found"
